@@ -1,0 +1,71 @@
+// @import "../abstract/variables";
+
+/* sest the font properties of the overall webpage
+we are doing this in the body becase these 
+properties are inhereted by child elements */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: $dark-grey-color;
+  padding: 3rem; /* create white space all around the webpage */
+}
+
+.heading-primary {
+  color: #ffffff;
+  text-transform: uppercase;
+  backface-visibility: hidden; /* prevents the element from shaking */
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 2s ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.7rem;
+    animation: moveInRight 2s ease-out;
+  }
+}
+
+.heading-secondary {
+  display: inline-block;
+  color: transparent;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  background-image: linear-gradient(
+    to right,
+    $primary-light-color,
+    $primary-dark-color
+  );
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: skewY(5deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($black-color, 0.2);
+  }
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+  font-size: $default-font-size;
+  font-weight: 700;
+}
+
+.paragraph {
+  font-size: 1.7rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

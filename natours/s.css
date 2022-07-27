@@ -1,0 +1,13 @@
+.con {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 2px solid;
+  display: block;
+  /* position: absolute; */
+}

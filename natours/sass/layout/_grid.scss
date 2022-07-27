@@ -1,0 +1,47 @@
+.row {
+  max-width: $grid-width; //use max-width so the the width is responsible when the screen size changes
+  margin: 0 auto; // center the row in the page
+
+  &:not(:last-child) {
+    margin-bottom: $vertical-gutter;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $horizontal-gutter;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc(((#{$grid-width}) - #{$horizontal-gutter}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((#{$grid-width} - (#{$horizontal-gutter} * 2)) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      #{$grid-width} - (((#{$grid-width} - (#{$horizontal-gutter} * 2)) / 3) + #{$horizontal-gutter})
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((#{$grid-width} - (#{$horizontal-gutter} * 3)) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc((#{$grid-width} / 2) - (#{$horizontal-gutter} / 2));
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      (((#{$grid-width} - (#{$horizontal-gutter} * 3)) / 4) * 3) +
+        (#{$horizontal-gutter} * 2)
+    );
+  }
+
+  @include clearfix;
+}

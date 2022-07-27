@@ -1,0 +1,577 @@
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40%;
+
+  @media only screen and(max-width: $bp-small) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--grey-light-2);
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--grey-light-2);
+    border-radius: 20rem;
+    border: none;
+    padding: 0.7rem 2rem;
+    width: 90%;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--grey-light-3);
+    }
+
+    &::placeholder {
+      font-weight: 100;
+      color: var(--grey-light-4);
+    }
+  }
+
+  &__input:focus + &__buttom {
+    background-color: var(--grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(0.2rem);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    margin-left: -3.5rem;
+    fill: var(--grey-dark-3);
+  }
+}
+
+.user-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+
+  @media screen and (max-width: $bp-medium) {
+    display: flex;
+    max-width: 0;
+  }
+
+  & > * {
+    // all the direct children of the user-nav class and style them
+    padding: 0 2rem;
+    height: 100%;
+  }
+
+  & > *:hover {
+    cursor: pointer;
+    background-color: var(--grey-light-2);
+  }
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: var(--grey-dark-2);
+
+    &-box {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+  }
+
+  &__notification {
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: white;
+    background-color: var(--primary-color);
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 1.3rem;
+    right: 1.1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+
+    &-photo {
+      height: 3.75rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.sidebar {
+  &__list {
+    margin-top: 3.5rem;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    z-index: 1;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+
+      @media screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      flex: 1;
+    }
+
+    &:before {
+      content: "";
+      display: table;
+      height: 100%;
+      width: 0.3rem;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleY(0);
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--primary-light);
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: white;
+    // display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media screen and (max-width: $bp-small) {
+      flex-direction: column;
+      // justify-content: center;
+      padding: 1.5rem 0.5rem;
+    }
+
+    &:link,
+    &:visited {
+      color: var(--grey-light-1);
+    }
+
+    &:hover,
+    &:active {
+    }
+  }
+
+  &__icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: currentColor;
+    margin-right: 1rem;
+
+    @media screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+.legal {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--grey-light-4);
+  padding: 2rem;
+  align-self: flex-end;
+
+  @media screen and (max-width: $bp-medium) {
+    display: none;
+  }
+}
+
+.gallery {
+  display: flex;
+
+  &__item {
+  }
+
+  &__photo {
+    width: 100%;
+    display: block; // image shoild always be a block or inline-block
+  }
+}
+
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border);
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    padding: 1.5rem 3rem;
+    color: var(--grey-dark-3);
+
+    @media only screen and(max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  &__stars {
+    display: flex; //set display to flex on this eleent to vertically align its content
+    margin-right: auto; // create space to the right of the element
+
+    &-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: var(--primary-color);
+    }
+  }
+
+  &__location {
+    display: flex; //set display to flex on this eleent to vertically align its content
+    align-items: center;
+    font-size: 1.2rem;
+
+    &-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: var(--primary-color);
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+
+    @media only screen and(max-width: $bp-small) {
+      padding: 0rem 1.5rem;
+    }
+
+    &-average {
+      font-size: 2.25rem;
+      font-weight: 100;
+      margin-bottom: 0.3rem; // add some space between top element
+
+      @media only screen and(max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-count {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+
+      @media only screen and(max-width: $bp-small) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
+
+.btn-inline {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  color: var(--primary-color);
+  border-bottom: 0.1rem solid var(--primary-color);
+  margin-right: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding-bottom: 0.2rem;
+  display: inline-block;
+
+  & span {
+    margin-left: 0.3rem;
+    transition: margin-left 0.3s;
+  }
+
+  &:hover {
+    color: var(--grey-dark-1);
+    // border-bottom: 0.1rem solid var(--grey-light-2);
+
+    span {
+      margin-left: 0.8rem;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.detail {
+  &__description {
+    font-size: 1.4rem;
+  }
+}
+
+.paragraph {
+  line-height: 2rem;
+  &:not(:last-of-type) {
+    // add a margin the bottom of eleemnts with type p except the last one
+    margin-bottom: 2rem;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  line-height: 3rem;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--border);
+  border-bottom: var(--border);
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.7rem;
+
+      //older browser
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
+
+      //new browser - mask
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--primary-color);
+        -webkit-mask: url(../img/chevron-thin-right.svg);
+        mask: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        background-image: none;
+      }
+    }
+  }
+}
+
+.recommendation {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: var(--grey-dark-3);
+  align-items: center;
+
+  &__images {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__image {
+    box-sizing: content-box;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 0.3rem solid white;
+    &:not(:first-child) {
+      margin-left: -2rem;
+    }
+  }
+
+  &__text {
+    margin-right: auto;
+  }
+}
+
+.review {
+  &__user {
+    &-photo {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+    }
+
+    &-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--grey-dark-1);
+      margin-bottom: 0.4rem;
+    }
+    &-date {
+      font-size: 1rem;
+      color: var(--grey-dark-3);
+    }
+
+    &-rating {
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      font-weight: 300;
+    }
+
+    &-text {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      position: relative;
+      z-index: 100;
+
+      &::before {
+        content: "\201C";
+        display: table;
+        font-size: 15rem;
+        font-family: sans-serif;
+        color: var(--grey-light-2);
+        line-height: 1;
+
+        position: absolute;
+        top: -4rem;
+        left: -3.5rem;
+        z-index: -1;
+      }
+    }
+
+    &-info {
+    }
+
+    &-subinfo {
+    }
+
+    &:not(:last-child) {
+    }
+  }
+}
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  @media screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
+  &__header {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    // color: ;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  border: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  color: white;
+  position: relative;
+  overflow: hidden; // hides the text of the invisible element
+  cursor: pointer;
+
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    padding: 2rem;
+    position: absolute;
+    top: -100%;
+    left: 0;
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%); // trans;ate 100% of its height down
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}

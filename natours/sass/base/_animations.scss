@@ -1,0 +1,56 @@
+/* opacity and transform */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0; /* make the element invisible in the beginning */
+    transform: translateX(-100px); /* goes to the left from the right */
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1; /* make the element visible in the beginning */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    opacity: 0.9;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveButtonInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveNameInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

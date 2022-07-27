@@ -1,0 +1,35 @@
+.header {
+  height: 95vh; /* this gives the header an height of 95% of whateder the viewport height is  */
+  /* puts a green gradient(image) over the image. Brandent should be ontop of the image so it has to b the first arugment */
+  /* to bing thr image forward use the opacity property */
+  background-image: linear-gradient(
+      to right bottom,
+      /* the direction of the gradient */ rgba($primary-light-color, 0.8),
+      /* the opacity to make the image in the background visible */
+        rgba($primary-dark-color, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover; /* fits the image in the size of the element or the viewport */
+  background-position: top; /* ensure that whatever the size of the vp is, the image will stay at the top of the vp */
+  webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem; /* width will be automatically figured out by the browser */
+  }
+
+  &__text-box {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

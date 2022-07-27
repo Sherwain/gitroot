@@ -1,0 +1,125 @@
+.btn {
+  /* psuedo class to make the visted and the link state to be the same */
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem; /* top bottom and left right */
+    transition: all 0.3s; /* animate the button from current state to states below*/
+    position: relative;
+
+    // Hange for the button element
+    border: none;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block; /* same as the button(parent) */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; /* place the boton behind the original button */
+    top: 0;
+    left: 0;
+    z-index: -1; /* hide the button */
+    transition: all 0.5s;
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; /* fades out  the element */
+    }
+
+    /* when the button is clicked */
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px rgba($black-color, 0.2);
+    }
+  }
+
+  &-animated {
+    animation: moveButtonInFromBottom 0.5s ease-out 1s;
+    animation-fill-mode: backwards; /* apply the animation of the 0% part of animation boefore the animation starts so the button is hidden while it waits to start animation */
+  }
+
+  &-white {
+    background-color: $white-color;
+    color: $dark-grey-color;
+    border-radius: 50px;
+    /* we could center the element the below code
+    however we could also use align to center of
+    the parent element(text-box) to center becuase
+    this is an inline-block elemsnt which can be treated as 
+    text element
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    &::after {
+      background-color: $white-color;
+    }
+  }
+
+  &-green {
+    background-color: $primary-color;
+    color: $white-color;
+    border-radius: 50px;
+    /* we could center the element the below code
+    however we could also use align to center of
+    the parent element(text-box) to center becuase
+    this is an inline-block elemsnt which can be treated as 
+    text element
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    &::after {
+      background-color: $primary-color;
+    }
+  }
+
+  /* mouse over */
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($black-color, 0.2); /* shodow in the x direction , shadow in thw Y direction, blur*, trnasparency of the color of the shodow */
+
+    /* access the beheind the button and increase its size */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; /* fades out  the element */
+    }
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    display: inline-block;
+    color: $primary-light-color;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $primary-color;
+    padding: 0.3rem;
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white-color;
+    cursor: pointer;
+    box-shadow: 0 1rem 2rem rgba($black-color, 0.2);
+    transform: translateY(-5px);
+  }
+
+  &:active {
+    box-shadow: 0 1rem 2rem rgba($black-color, 0.2);
+    transform: translateY(0);
+  }
+}

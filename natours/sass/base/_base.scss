@@ -1,0 +1,20 @@
+@import "../abstract/variables";
+
+// reset
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* resets the size of the elemenst so that margin padding and border are apart of the width/height of the box */
+}
+html {
+  font-size: 62.5%;
+}
+
+/* reset the font properties of the overall webpage
+we are doing this in the body becase these 
+properties are inhereted by child elements */
+body {
+  box-sizing: border-box;
+}

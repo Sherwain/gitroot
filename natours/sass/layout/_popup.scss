@@ -1,0 +1,99 @@
+.popup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($black-color, 0.8);
+  margin: 0 auto;
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &__content {
+    margin: 0;
+    @include absCenter;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba($white-color, 0.2);
+    background-color: $white-color;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    display: table; //allow both divs side by side to have the same height
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: all 0.4s 0.2s;
+  }
+  &__left {
+    width: 33.3333333%;
+    display: table-cell; //allow both divs side by side to have the same height
+    vertical-align: middle;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__right {
+    width: 66.66666666667%;
+    display: table-cell; //allow both divs side by side to have the same height
+    padding: 3rem 5rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+
+    -ms-count: 2;
+    -moz-count: 2;
+    -webkit-count: 2;
+    column-count: 2;
+
+    -ms-column-gap: 4rem;
+    -moz-column-gap: 4rem;
+    -webkit-column-gap: 4rem;
+    column-gap: 4rem;
+
+    -ms-column-rule: 1px solid $grey_light-color-2;
+    -moz-column-rule: 1px solid $grey_light-color-2;
+    -webkit-column-rule: 1px solid $grey_light-color-2;
+    column-rule: 1px solid $grey_light-color-2;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $dark-grey-color;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    // opacity: 1;
+    // visibility: visible;
+  }
+}

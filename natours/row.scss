@@ -1,0 +1,90 @@
+.row {
+  max-width: $grid-width; //use max-width so the the width is responsible when the screen size changes
+  background-color: #eee;
+  margin: 0 auto; // center the row in the page
+
+  &:not(:last-child) {
+    margin-bottom: $vertical-gutter;
+  }
+
+  .col-1-of-2 {
+    width: calc((#{$grid-width} - #{$horizontal-gutter}) / 2);
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $horizontal-gutter;
+    }
+  }
+
+  .col-1-of-3 {
+    width: calc((#{$grid-width} - #{$horizontal-gutter}) / 3);
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: calc(#{$horizontal-gutter} / 2);
+    }
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      (((#{$grid-width} - #{$horizontal-gutter}) / 3) * 2) +
+        (#{$horizontal-gutter} / 2)
+    );
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: #{$horizontal-gutter};
+    }
+  }
+
+  .col-1-of-4 {
+    width: calc((#{$grid-width} - #{$horizontal-gutter}) / 4);
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: calc(#{$horizontal-gutter} / 3);
+    }
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      (
+        (#{$grid-width} - #{$horizontal-gutter}) / 2 +
+          (#{$horizontal-gutter} / 3)
+      )
+    );
+    background-color: orangered;
+    float: left;
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      (#{$grid-width}) -
+        (
+          ((#{$grid-width} - #{$horizontal-gutter}) / 4) +
+            (#{$horizontal-gutter} / 3)
+        )
+    );
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: calc(#{$horizontal-gutter} / 3);
+    }
+  }
+
+  @include clearfix;
+}
+
+
+  // &:hover &__side--front:not(:hover) {
+  //   z-index: 0;
+  // }
+
+  // &:hover &__side--back:not(:hover) {
+  //   z-index: 1;
+  // }

@@ -1,0 +1,183 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+
+  &__side {
+    border-radius: 0.9rem;
+    box-shadow: 0 5px 10px rgba($black-color, 0.2);
+    height: 50rem;
+    transition: all 0.5s ease;
+    position: absolute;
+    webkit-backface-visibility: hidden; //hides the back potion of the card as it rotates
+    backface-visibility: hidden; //hides the back potion of the card as it rotates
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    &--front {
+      background-color: $white-color;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $secondary-light-color,
+          $secondary-dark-color
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $primary-light-color,
+          $primary-dark-color
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $tertiary-light-color,
+          $tertiary-dark-color
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // front side syyling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: url("../img/nat-5.jpg"),
+        linear-gradient(
+          to right bottom,
+          $secondary-light-color,
+          $secondary-dark-color
+        );
+    }
+
+    &--2 {
+      background-image: url("../img/nat-6.jpg"),
+        linear-gradient(
+          to right bottom,
+          $primary-light-color,
+          $primary-dark-color
+        );
+    }
+
+    &--3 {
+      background-image: url("../img/nat-7.jpg"),
+        linear-gradient(
+          to right bottom,
+          $tertiary-light-color,
+          $tertiary-dark-color
+        );
+    }
+  }
+
+  &__heading {
+    width: 70%; // make the text break into another line
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  &__heading-span {
+    // style text in two differnt ine as if there were in on line
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &-1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($secondary-light-color, 0.85),
+        rgba($secondary-dark-color, 0.85)
+      );
+    }
+
+    &-2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($primary-light-color, 0.85),
+        rgba($primary-dark-color, 0.85)
+      );
+    }
+
+    &-3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($tertiary-light-color, 0.85),
+        rgba($tertiary-dark-color, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      // padding: 2.5rem;
+
+      li {
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid $grey-light-color-2;
+        }
+      }
+    }
+  }
+
+  // Back side style
+  &_cta {
+    width: 90%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $white-color;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
